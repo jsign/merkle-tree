@@ -11,7 +11,7 @@ import (
 const OwnerReadWrite = 0600
 
 func NewFileReadWriter(filename string) (*FileReadWriter, error) {
-	f, err := os.OpenFile(filename, os.O_APPEND|os.O_RDWR, OwnerReadWrite)
+	f, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_RDWR, OwnerReadWrite)
 	if err != nil {
 		return nil, fmt.Errorf("failed to open file for disk read-writer: %v", err)
 	}
